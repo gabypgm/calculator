@@ -1,12 +1,16 @@
  
   <div>
-   <span>Result</span>
-   <input (keyup)="add($event)">
-   <div class="result">{{ total }}</div>
+   <label> Value 1:</label>
+   <input type="number" placeholder="0" [(ngModel)]="firstValue">
+   <label>Value 2:</label>
+   <input type="number" placeholder="0" [(ngModel)]="secondValue">
+   <div class="result">Resultado:</div>
+    <div *ngIf="result !== 0">{{total}} = {{result}}</div>
+   <br>
   </div>
   <div>
-    <button (click)="add($event)">Sumar</button>
-    <button>Restar</button>
-    <button>=</button>
+    <button (click)="reset()">Reset</button>
+    <button (click)="operation('+')">Sumar</button>
+    <button (click)="operation('-')">Restar</button>
   </div>
 

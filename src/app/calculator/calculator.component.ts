@@ -6,14 +6,29 @@ import { Input } from '@angular/core';
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css']
 })
-export class CalculatorComponent {
-  total: number = 0;
 
-  @Input('event') event: number = 0;
+export class CalculatorComponent {
+
+  constructor() {}
+
+  total: string = '';
+  firstValue: number = 0;
+  secondValue: number = 0;
+  operator: string =''; 
+  result: number = 0;
   
-  add(event: any) {
-    console.log(this.total)
-    return this.total = this.total + parseFloat(event.target.value);
+  reset(){
+    this.firstValue = 0;
+    this.secondValue = 0;
+    this.total = '';
+    this.operator=''
+    this.result = 0
+  }
+
+  operation(op: string){
+    this.operator = op
+    this.total = this.firstValue.toString() + " " + op + " " + this.secondValue.toString()
+    this.result = eval(this.total)
   }
 }
 
