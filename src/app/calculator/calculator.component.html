@@ -1,16 +1,32 @@
+ <div class="container text-center">
+  <div class="row" >
+
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="value1" placeholder="0" value="" [(ngModel)]="firstValue" (click)="startTyping()">
+          <label for="value1">Value 1</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="number" class="form-control" id="value2" placeholder="0" value="" [(ngModel)]="secondValue" (click)="startTyping()">
+          <label for="value2">Value 2</label>
+        </div>
+      </div>
+    </div>
+    <div class="col result">
+        <h2 >Resultado: </h2>
+        <span *ngIf="result !== 0">{{total}} = {{result}}</span>
+    </div>
+      <br>
+    </div>
+    <div class="col">
+      <button type="button" (click)="reset()" class="btn btn-dark">Reset</button>
+      <button type="button" (click)="operation('+')" class="btn btn-light">Sumar</button>
+      <button type="button" (click)="operation('-')" class="btn btn-light">Restar</button>
+
+    </div>
+ </div>
  
-  <div>
-   <label> Value 1:</label>
-   <input type="number" placeholder="0" [(ngModel)]="firstValue">
-   <label>Value 2:</label>
-   <input type="number" placeholder="0" [(ngModel)]="secondValue">
-   <div class="result">Resultado:</div>
-    <div *ngIf="result !== 0">{{total}} = {{result}}</div>
-   <br>
-  </div>
-  <div>
-    <button (click)="reset()">Reset</button>
-    <button (click)="operation('+')">Sumar</button>
-    <button (click)="operation('-')">Restar</button>
-  </div>
 

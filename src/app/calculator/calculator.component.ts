@@ -12,8 +12,8 @@ export class CalculatorComponent {
   constructor() {}
 
   total: string = '';
-  firstValue: number = 0;
-  secondValue: number = 0;
+  firstValue: number | string = 0;
+  secondValue: number | string = 0;
   operator: string =''; 
   result: number = 0;
   
@@ -29,6 +29,11 @@ export class CalculatorComponent {
     this.operator = op
     this.total = this.firstValue.toString() + " " + op + " " + this.secondValue.toString()
     this.result = eval(this.total)
+  }
+
+  startTyping() {
+    this.firstValue = this.firstValue == 0 ? '' : this.firstValue
+    this.secondValue  = this.secondValue == 0 ? '' : this.secondValue
   }
 }
 
